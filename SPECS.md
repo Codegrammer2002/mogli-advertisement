@@ -1,6 +1,6 @@
 # Project Specification — Mogli Advertisement Company Website
 
-**Status:** Live development · **Repo:** [github.com/Codegrammer2002/mogli-advertisement](https://github.com/Codegrammer2002/mogli-advertisement) · **Last updated:** 2026-10-08
+**Status:** Live at [mogli-advertisement.vercel.app](https://mogli-advertisement.vercel.app) · **Repo:** [github.com/Codegrammer2002/mogli-advertisement](https://github.com/Codegrammer2002/mogli-advertisement) · **Last updated:** 2026-10-08
 
 ## 1. Purpose
 
@@ -110,9 +110,8 @@ Print-shop aesthetic — the site should look like it came off the shop's own pr
 
 ## 9. Open items
 
-- [ ] Connect the GitHub repo to Vercel (owner action, ~2 min).
+- [x] Connect the GitHub repo to Vercel — live at mogli-advertisement.vercel.app.
 - [ ] Web3Forms access key → Vercel env var `NEXT_PUBLIC_WEB3FORMS_KEY`.
-- [ ] Update `siteConfig.url` once the final production URL exists.
 - [ ] Real logo to replace the "M" wordmark.
 - [ ] Photos of actual printed work (biggest credibility upgrade).
 - [ ] Optional: custom domain (e.g. `mogliprinting.in`).
