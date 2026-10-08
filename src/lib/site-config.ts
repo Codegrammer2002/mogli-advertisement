@@ -8,12 +8,11 @@ export const siteConfig = {
   tagline: "Printing Experts",
   foundedYear: 1996,
 
-  // TODO: replace placeholders with real contact details before going live.
-  // Phone/WhatsApp must be in international format without spaces for links.
-  phone: "+91XXXXXXXXXX",
-  phoneDisplay: "+91 XXXXX XXXXX",
-  whatsapp: "91XXXXXXXXXX", // country code + number, no "+", used in wa.me links
-  email: "contact@example.com",
+  // Phone/WhatsApp in international format without spaces for links.
+  phone: "+919896084820",
+  phoneDisplay: "+91 98960 84820",
+  whatsapp: "919896084820", // country code + number, no "+", used in wa.me links
+  email: "himanshusagar1968@gmail.com",
 
   address: "Manesar, Gurugram, Haryana, India",
 
