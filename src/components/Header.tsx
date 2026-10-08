@@ -16,17 +16,19 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b-2 border-foreground bg-background/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link href="/" className="flex items-center gap-2" onClick={() => setMenuOpen(false)}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-accent font-bold text-accent-contrast">
+        <Link href="/" className="flex items-center gap-3" onClick={() => setMenuOpen(false)}>
+          <span className="flex h-10 w-10 items-center justify-center bg-accent font-display text-xl font-black text-accent-contrast">
             M
           </span>
           <span className="leading-tight">
-            <span className="block text-sm font-bold sm:text-base">
+            <span className="block font-display text-sm font-extrabold sm:text-base">
               {siteConfig.name}
             </span>
-            <span className="block text-xs text-muted">{siteConfig.tagline}</span>
+            <span className="tech-label block text-muted">
+              {siteConfig.tagline} · est. {siteConfig.foundedYear}
+            </span>
           </span>
         </Link>
 
@@ -35,7 +37,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
+              className={`tech-label transition-colors hover:text-accent ${
                 pathname === link.href ? "text-accent" : "text-foreground"
               }`}
             >
@@ -44,7 +46,7 @@ export default function Header() {
           ))}
           <Link
             href="/contact"
-            className="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-accent-contrast transition-colors hover:bg-accent-strong"
+            className="tech-label border-2 border-foreground bg-foreground px-4 py-2.5 text-background transition-colors hover:bg-accent hover:text-accent-contrast hover:border-accent"
           >
             Get a Quote
           </Link>
@@ -52,7 +54,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="rounded-md border border-border p-2 sm:hidden"
+          className="border-2 border-foreground p-2 sm:hidden"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           onClick={() => setMenuOpen((open) => !open)}
@@ -68,13 +70,13 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <nav className="border-t border-border bg-surface px-4 py-2 sm:hidden" aria-label="Mobile">
+        <nav className="border-t border-border bg-background px-4 py-2 sm:hidden" aria-label="Mobile">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`block py-3 text-sm font-medium ${
+              className={`tech-label block py-3.5 ${
                 pathname === link.href ? "text-accent" : "text-foreground"
               }`}
             >

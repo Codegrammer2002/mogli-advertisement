@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import RegMark from "@/components/RegMark";
 import { siteConfig, whatsappLink } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -9,24 +10,29 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-bold sm:text-4xl">Get in Touch</h1>
-      <p className="mt-4 max-w-2xl text-lg text-muted">
-        Tell us what you need printed and we will get back with a quote —
-        usually the same day.
+    <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6">
+      <p className="tech-label flex items-center gap-2 text-accent">
+        <RegMark className="h-4 w-4" />
+        Enquiries — quotes usually same day
+      </p>
+      <h1 className="mt-4 font-display text-4xl font-black sm:text-5xl">
+        Get in touch
+      </h1>
+      <p className="mt-4 max-w-2xl text-lg font-light text-muted">
+        Tell us what you need printed — a photo of the product helps.
       </p>
 
-      <div className="mt-12 grid gap-10 md:grid-cols-2">
+      <div className="mt-12 grid gap-8 md:grid-cols-2">
         <div className="space-y-6">
-          <div className="rounded-xl border border-border bg-surface p-6">
-            <h2 className="font-semibold">Call or WhatsApp</h2>
-            <p className="mt-2 text-sm text-muted">
-              Fastest way to reach us during working hours.
-            </p>
+          <div className="border-2 border-foreground bg-surface p-6">
+            <p className="tech-label text-muted">Direct line</p>
+            <h2 className="mt-1 font-display text-xl font-black">
+              Call or WhatsApp
+            </h2>
             <div className="mt-4 space-y-3">
               <a
                 href={`tel:${siteConfig.phone}`}
-                className="block font-medium text-accent hover:underline"
+                className="block font-mono text-lg font-bold text-accent hover:underline"
               >
                 {siteConfig.phoneDisplay}
               </a>
@@ -34,35 +40,44 @@ export default function ContactPage() {
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block rounded-md bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90"
+                className="tech-label inline-block border-2 border-foreground bg-[#25D366] px-5 py-3 text-[#0b2b17] hover:opacity-90"
               >
                 Chat on WhatsApp
               </a>
             </div>
           </div>
 
-          <div className="rounded-xl border border-border bg-surface p-6">
-            <h2 className="font-semibold">Email</h2>
+          <div className="border-2 border-foreground bg-surface p-6">
+            <p className="tech-label text-muted">Written enquiries</p>
+            <h2 className="mt-1 font-display text-xl font-black">Email</h2>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="mt-2 block text-sm font-medium text-accent hover:underline"
+              className="mt-3 block font-mono text-sm font-bold text-accent hover:underline"
             >
               {siteConfig.email}
             </a>
           </div>
 
-          <div className="rounded-xl border border-border bg-surface p-6">
-            <h2 className="font-semibold">Service Areas</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
+          <div className="border-2 border-foreground bg-surface p-6">
+            <p className="tech-label text-muted">Coverage</p>
+            <h2 className="mt-1 font-display text-xl font-black">
+              Service areas
+            </h2>
+            <p className="mt-3 text-sm font-light leading-relaxed text-muted">
               {siteConfig.serviceAreas.join(" · ")}
             </p>
-            <p className="mt-3 text-sm text-muted">{siteConfig.address}</p>
+            <p className="tech-label mt-4 text-muted">{siteConfig.address}</p>
           </div>
         </div>
 
-        <div>
-          <h2 className="mb-4 font-semibold">Send an Enquiry</h2>
-          <ContactForm />
+        <div className="border-2 border-foreground bg-surface p-6">
+          <p className="tech-label text-muted">Job ticket</p>
+          <h2 className="mt-1 font-display text-xl font-black">
+            Send an enquiry
+          </h2>
+          <div className="mt-5">
+            <ContactForm />
+          </div>
         </div>
       </div>
     </div>

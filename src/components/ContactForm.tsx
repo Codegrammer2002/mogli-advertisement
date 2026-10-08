@@ -7,6 +7,9 @@ const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+const inputClasses =
+  "mt-1.5 w-full border-2 border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-accent";
+
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
 
@@ -14,9 +17,9 @@ export default function ContactForm() {
   // instead of showing a form that cannot deliver.
   if (!WEB3FORMS_KEY) {
     return (
-      <div className="rounded-xl border border-border bg-surface p-6 text-center">
-        <p className="font-medium">Online form coming soon.</p>
-        <p className="mt-2 text-sm text-muted">
+      <div className="border-2 border-dashed border-border p-6 text-center">
+        <p className="font-display font-extrabold">Online form coming soon.</p>
+        <p className="mt-2 text-sm font-light text-muted">
           Meanwhile, reach us instantly on WhatsApp — we usually reply within
           minutes.
         </p>
@@ -24,7 +27,7 @@ export default function ContactForm() {
           href={whatsappLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-block rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-accent-contrast hover:bg-accent-strong"
+          className="tech-label mt-5 inline-block border-2 border-foreground bg-foreground px-5 py-3 text-background transition-colors hover:border-accent hover:bg-accent hover:text-accent-contrast"
         >
           Message us on WhatsApp
         </a>
@@ -54,9 +57,9 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-xl border border-border bg-surface p-6 text-center">
-        <p className="text-lg font-semibold">Thank you!</p>
-        <p className="mt-2 text-sm text-muted">
+      <div className="border-2 border-foreground p-6 text-center">
+        <p className="font-display text-lg font-black">Thank you!</p>
+        <p className="mt-2 text-sm font-light text-muted">
           Your enquiry has been sent. We will get back to you shortly.
         </p>
       </div>
@@ -66,7 +69,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium">
+        <label htmlFor="name" className="tech-label block">
           Name
         </label>
         <input
@@ -75,11 +78,11 @@ export default function ContactForm() {
           type="text"
           required
           autoComplete="name"
-          className="mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent"
+          className={inputClasses}
         />
       </div>
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium">
+        <label htmlFor="phone" className="tech-label block">
           Phone
         </label>
         <input
@@ -88,11 +91,11 @@ export default function ContactForm() {
           type="tel"
           required
           autoComplete="tel"
-          className="mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent"
+          className={inputClasses}
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium">
+        <label htmlFor="email" className="tech-label block">
           Email <span className="text-muted">(optional)</span>
         </label>
         <input
@@ -100,24 +103,18 @@ export default function ContactForm() {
           name="email"
           type="email"
           autoComplete="email"
-          className="mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent"
+          className={inputClasses}
         />
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium">
+        <label htmlFor="message" className="tech-label block">
           What do you need printed?
         </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          required
-          className="mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent"
-        />
+        <textarea id="message" name="message" rows={4} required className={inputClasses} />
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-red-600">
+        <p className="text-sm font-medium text-accent">
           Something went wrong. Please try again, or contact us on WhatsApp.
         </p>
       )}
@@ -125,9 +122,9 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-accent-contrast transition-colors hover:bg-accent-strong disabled:opacity-60"
+        className="tech-label w-full border-2 border-foreground bg-foreground px-5 py-3.5 text-background transition-colors hover:border-accent hover:bg-accent hover:text-accent-contrast disabled:opacity-60"
       >
-        {status === "submitting" ? "Sending…" : "Send Enquiry"}
+        {status === "submitting" ? "Sending…" : "Send Enquiry →"}
       </button>
     </form>
   );

@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
+/*
+ * Print-shop theme: one dominant paper background, one ink text color,
+ * exactly one accent — screen-print ink orange.
+ */
 :root {
-  --background: #faf9f7;
-  --foreground: #1c1917;
-  --surface: #ffffff;
-  --muted: #57534e;
-  --border: #e7e5e4;
-  /* Ink-inspired brand accent */
-  --accent: #1d4ed8;
-  --accent-strong: #1e40af;
-  --accent-soft: #dbeafe;
-  --accent-contrast: #ffffff;
+  --background: #f4efe4;
+  --foreground: #1a150d;
+  --surface: #fdfbf4;
+  --muted: #6f6553;
+  --border: #d9cfba;
+  --accent: #e03e00;
+  --accent-strong: #b83300;
+  --accent-contrast: #fffdf8;
+  --halftone: rgba(26, 21, 13, 0.16);
 }
 
 @theme inline {
@@ -21,27 +24,41 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
-  --color-accent-soft: var(--accent-soft);
   --color-accent-contrast: var(--accent-contrast);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-bricolage);
+  --font-display: var(--font-fraunces);
+  --font-mono: var(--font-jetbrains);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0c0a09;
-    --foreground: #f5f5f4;
-    --surface: #1c1917;
-    --muted: #a8a29e;
-    --border: #292524;
-    --accent: #60a5fa;
-    --accent-strong: #93c5fd;
-    --accent-soft: #1e3a5f;
-    --accent-contrast: #0c0a09;
+    --background: #14110a;
+    --foreground: #efe9d8;
+    --surface: #1d1910;
+    --muted: #9d937e;
+    --border: #332c1e;
+    --accent: #ff5a1f;
+    --accent-strong: #ff7a47;
+    --accent-contrast: #14110a;
+    --halftone: rgba(239, 233, 216, 0.12);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Screen-print halftone dot texture, used as section backdrop. */
+.halftone {
+  background-image: radial-gradient(var(--halftone) 1.1px, transparent 1.1px);
+  background-size: 13px 13px;
+}
+
+/* Technical label: the small monospace captions used across the site. */
+.tech-label {
+  font-family: var(--font-jetbrains);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
